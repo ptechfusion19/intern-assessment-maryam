@@ -43,9 +43,7 @@ pip install -r requirements.txt
 
 ---
 
-### ⚙ Run the Application
-
-## 🚀 Run the Application
+###  Run the Application
 
 ```bash
 python main.py
