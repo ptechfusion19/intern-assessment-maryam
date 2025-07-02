@@ -1,23 +1,23 @@
-# 📊 Solana SPL Token Tracker
+#  Solana SPL Token Tracker
 
 This is a full-stack application that tracks and visualizes SPL token transfer activity for a specific Solana wallet. It uses:
 
-- 🧠 **FastAPI** for building RESTful APIs
-- 📦 **SQLite** for storing transfer data
-- 📈 **Streamlit** for interactive dashboard and data filtering
-- 🌐 **Helius API** to fetch Solana blockchain transaction data
+-  **FastAPI** for building RESTful APIs
+-  **SQLite** for storing transfer data
+-  **Streamlit** for interactive dashboard and data filtering
+-  **Helius API** to fetch Solana blockchain transaction data
 
 ---
 
-## 📌 Overview
+##  Overview
 
 This project tracks SPL token transfers for a given Solana wallet using the [Helius API](https://www.helius.xyz/), stores the data in a local SQLite database, exposes the data via FastAPI, and visualizes it in an interactive Streamlit dashboard.
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
-### ✅ Prerequisites
+###  Prerequisites
 
 - Python 3.10 or later
 - Pip or virtualenv
@@ -29,46 +29,33 @@ HELIUS_API_KEY=your_helius_api_key_here
 
 ---
 
-### 📦 Installation
+###  Installation
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/yourusername/solana-token-tracker.git
-cd solana-token-tracker
 
-# 2. Create a virtual environment (optional but recommended)
+# 1. Create a virtual environment (optional but recommended)
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# 3. Install dependencies
+# 2. Install dependencies
 pip install -r requirements.txt
 ```
 
 ---
 
-### ⚙️ Run the Application
+### ⚙ Run the Application
 
-#### 1. Start the API Server (FastAPI)
-
-```bash
-uvicorn src.api:app --reload
-```
-
-The API will be available at:  
-👉 `http://localhost:8000`
-
-#### 2. Launch the Dashboard (Streamlit)
+## 🚀 Run the Application
 
 ```bash
-streamlit run frontend/app.py
+python main.py
 ```
 
-The dashboard will open in your browser at:  
-👉 `http://localhost:8501`
+This will launch both the FastAPI server and Streamlit dashboard.
 
 ---
 
-## 📡 API Endpoints
+##  API Endpoints
 
 ### Root
 **`GET /`**  
@@ -105,26 +92,28 @@ Returns a message with the number of new transfers inserted.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 .
+intern_assessment/
 ├── data/
-│   ├── .env                  # Helius API key
-│   └── transfers.db          # SQLite database
-├── frontend/
-│   └── app.py                # Streamlit dashboard
+│   ├── .env                 # Environment variables (API key)
+│   └── transfers.db         # SQLite database (auto-created)
 ├── src/
-│   ├── api.py                # FastAPI application
-│   ├── config.py             # Supported tokens
-│   └── solana_transfer.py    # Helius API + DB logic
-├── requirements.txt
-└── README.md
+│   ├── config.py            # Token mint configurations
+│   ├── solana_transfer.py   # Fetch & store transfer logic
+│   ├── solana_api.py        # FastAPI application
+│   └── solana_tracker.py    # Streamlit dashboard code
+├── main.py                  # Launches API and dashboard
+├── requirements.txt         # Python dependencies
+├── .env.example             # Example env file
+└── .gitignore               # Specifies untracked files
 ```
 
 ---
 
-## 🛠 Built With
+##  Built With
 
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Streamlit](https://streamlit.io/)
